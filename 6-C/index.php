@@ -53,7 +53,8 @@
                         <?php 
                             include 'API/koneksi.php';
                             $sql = "SELECT
-                                Product.id AS id,
+                                Product.id AS id_product,
+                                Cashier.id AS id_cashier,
                                 Cashier.name AS cashier, 
                                 Product.name AS product, 
                                 Category.name AS category, 
@@ -66,18 +67,18 @@
                             foreach($result as $res){
                         ?>      
                     <tr>    
-                        <th scope="row"><?php echo $res["id"]; ?></th>
+                        <th scope="row"><?php echo $res["id_product"]; ?></th>
                         <td><?php echo $res["cashier"]; ?></td>
                         <td><?php echo $res["product"]; ?></td>
                         <td><?php echo $res["category"]; ?></td>
                         <td>Rp. <?php echo $res["price"];  ?></td>
                         <td>
-                            <button type="button" class="btn text-green" data-toggle="modal"
-                                data-target="#edit-<?php echo $res["id"]; ?>">
+                            <a class="btn text-green"  href="#" data-toggle="modal"
+                                data-target="#edit-<?php echo $res["id_product"]; ?>">
                                 Edit
-                            </button>
+                            </a>
                             <!-- Modal Edit -->
-                                <div class="modal fade" id="edit-<?php echo $res["id"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                <div class="modal fade" id="edit-<?php echo $res["id_product"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog mt-5" role="document">
                                         <div class="modal-content border-radius">
@@ -89,7 +90,8 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="container">
-                                                    <form>
+                                                    <form action="API/update.php" method="POST">
+                                                        <input type="hidden" class="form-control" name="Id" value="<?php echo $res["id_product"];  ?>" required>
                                                         <div class="form-group">
                                                             <label></label>
                                                             <select class="form-control" name="Cashier">
@@ -108,11 +110,11 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label></label>
-                                                            <input type="text" class="form-control" name="Product" value="<?php echo $res["product"]; ?>" placeholder="Ice Tea">
+                                                            <input type="text" class="form-control" name="Product" value="<?php echo $res["product"]; ?>" placeholder="Ice Tea" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label></label>
-                                                            <select class="form-control" name="Category">
+                                                            <select class="form-control" name="Category" required>
                                                                 <?php 
                                                                 include 'API/koneksi.php';
                                                                     $sqlCategory = "SELECT * FROM Category";
@@ -128,10 +130,10 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label></label>
-                                                            <input type="text" class="form-control" id="Price" value="<?php echo $res["price"];  ?>" placeholder="RP.10.000">
+                                                            <input type="text" class="form-control" name="Price" value="<?php echo $res["price"];  ?>" placeholder="RP.10.000" required>
                                                         </div>
                                                         <div class="modal-footer no-border">
-                                                            <button type="button" class="btn btn-danger pl-4 pr-4">EDIT</button>
+                                                            <input type="submit" name="submitEDIT" class="btn btn-danger pl-4 pr-4" value="EDIT" required>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -140,11 +142,11 @@
                                     </div>
                                 </div>
                             |
-                            <button type="button" class="btn text-pink" data-toggle="modal"
-                                data-target="#delete-<?php echo $res["id"]; ?>">Delete</button>
-
-                                <!-- Modal Delete -->
-                                <div class="modal fade" id="delete-<?php echo $res["id"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            <a class="btn text-pink" href="API/delete.php?id_product=<?php echo $res["id_product"]; ?>">Delete</a>
+                            <!-- <button type="button" class="btn text-pink" data-toggle="modal"
+                                data-target="#delete-<?php echo $res["id_product"]; ?>">Delete</button> -->
+                            <!-- Modal Delete -->
+                                <div class="modal fade" id="delete-<?php echo $res["id_product"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog mt-5" role="document">
                                         <div class="modal-content border-radius">
@@ -157,7 +159,7 @@
                                                 <div class="container">
                                                     <div class="text-center mb-1 font-weight-bold">
                                                         <h4 class="mb-2">
-                                                            Data {Product.name} ID <spam class="text-pink">#{Product.id}</spam>
+                                                            Data <?php echo $res["cashier"]; ?> ID <spam class="text-pink">#<?php echo $res["id_cashier"]; ?></spam>
                                                         </h4>
                                                         <img src="assets/img/cropped-centang.png" style="height: 300px;"
                                                             class="rounded mx-auto d-block mb-1" alt="...">
@@ -192,10 +194,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <form>
+                        <form action="API/create.php" method="POST">
                             <div class="form-group">
                                 <label></label>
-                                <select class="form-control" name="Cashier">
+                                <select class="form-control" name="Cashier" required>
                                     <?php 
                                         include 'API/koneksi.php';
                                             $sqlCashier = "SELECT * FROM Cashier";
@@ -211,11 +213,11 @@
                             </div>
                             <div class="form-group">
                                 <label></label>
-                                <input type="text" class="form-control" name="Product" placeholder="Ice Tea">
+                                <input type="text" class="form-control" name="Product" placeholder="Ice Tea" required>
                             </div>
                             <div class="form-group">
                                 <label></label>
-                                <select class="form-control" name="Category">
+                                <select class="form-control" name="Category" required>
                                     <?php 
                                         include 'API/koneksi.php';
                                             $sqlCategory = "SELECT * FROM Category";
@@ -229,13 +231,12 @@
                                     ?>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label></label>
-                                <input type="text" class="form-control" id="Price" placeholder="RP.10.000">
+                                <input type="text" class="form-control" name="Price" placeholder="RP.10.000" required>
                             </div>
                             <div class="modal-footer no-border">
-                                <button type="button" class="btn btn-danger pl-4 pr-4">EDIT</button>
+                                <input type="submit" class="btn btn-danger pl-4 pr-4" name="submitADD" value="ADD">
                             </div>
                         </form>
                     </div>
@@ -244,9 +245,6 @@
         </div>
     </div>
 
-    
-
-   
 
 
     <!-- Optional JavaScript -->
