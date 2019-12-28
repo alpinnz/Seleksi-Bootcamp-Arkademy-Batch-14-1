@@ -4,7 +4,7 @@ const createMatrix = (ordo) => {
     let right = [];
 
     let rowRight = 0;
-    let colRight = arr.length;
+    let colRight = (arr.length - 1);
 
     let no = 1;
     for (let row = 0; row < arr.length; row++) {
