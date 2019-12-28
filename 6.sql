@@ -1,5 +1,5 @@
 -- Buat database
-CREATE DATABASE shop;
+CREATE DATABASE toko;
 
 -- Buat Table Product berserta atributnya
 CREATE TABLE Product(
