@@ -24,3 +24,9 @@ console.log(is_age_valid('aas') ? "benar" : "salah");
 console.log(is_age_valid('1') ? "benar" : "salah");
 console.log(is_age_valid('22') ? "benar" : "salah");
 console.log(is_age_valid('3123') ? "benar" : "salah");
+
+// username
+console.log(is_username_valid('yani_333') ? "benar" : "salah");
+console.log(is_username_valid('auto.555') ? "benar" : "salah");
+console.log(is_username_valid('yani_233') ? "benar" : "salah");
+console.log(is_username_valid('yanA.333') ? "benar" : "salah");
