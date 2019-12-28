@@ -73,10 +73,103 @@
                         <td>Rp. <?php echo $res["price"];  ?></td>
                         <td>
                             <button type="button" class="btn text-green" data-toggle="modal"
-                                data-target="#edit">Edit</button>
+                                data-target="#edit-<?php echo $res["id"]; ?>">
+                                Edit
+                            </button>
+                            <!-- Modal Edit -->
+                                <div class="modal fade" id="edit-<?php echo $res["id"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog mt-5" role="document">
+                                        <div class="modal-content border-radius">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">EDIT</h5>
+                                                <button type="button" class="close text-pink" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                            <select class="form-control" name="Cashier">
+                                                            <?php 
+                                                            include 'API/koneksi.php';
+                                                                $sqlCashier = "SELECT * FROM Cashier";
+                                                                $resultCashier = $koneksi->query($sqlCashier);
+                                                                
+                                                                foreach($resultCashier as $resCashier){
+                                                            ?>                                                            
+                                                                <option value="<?php echo $resCashier["id"]; ?>"><?php echo $resCashier["name"]; ?></option>         
+                                                            <?php   
+                                                                }
+                                                            ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                            <input type="text" class="form-control" name="Product" value="<?php echo $res["product"]; ?>" placeholder="Ice Tea">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                            <select class="form-control" name="Category">
+                                                                <?php 
+                                                                include 'API/koneksi.php';
+                                                                    $sqlCategory = "SELECT * FROM Category";
+                                                                    $resultCategory = $koneksi->query($sqlCategory);
+                                                                    
+                                                                    foreach($resultCategory as $resCategory){
+                                                                ?>                                                            
+                                                                    <option value="<?php echo $resCategory["id"]; ?>"><?php echo $resCategory["name"]; ?></option>         
+                                                                <?php   
+                                                                    }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                            <input type="text" class="form-control" id="Price" value="<?php echo $res["price"];  ?>" placeholder="RP.10.000">
+                                                        </div>
+                                                        <div class="modal-footer no-border">
+                                                            <button type="button" class="btn btn-danger pl-4 pr-4">EDIT</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             |
                             <button type="button" class="btn text-pink" data-toggle="modal"
-                                data-target="#delete">Delete</button>
+                                data-target="#delete-<?php echo $res["id"]; ?>">Delete</button>
+
+                                <!-- Modal Delete -->
+                                <div class="modal fade" id="delete-<?php echo $res["id"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog mt-5" role="document">
+                                        <div class="modal-content border-radius">
+                                            <div class="modal-header">
+                                                <button type="button" class="close text-pink" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container">
+                                                    <div class="text-center mb-1 font-weight-bold">
+                                                        <h4 class="mb-2">
+                                                            Data {Product.name} ID <spam class="text-pink">#{Product.id}</spam>
+                                                        </h4>
+                                                        <img src="assets/img/cropped-centang.png" style="height: 300px;"
+                                                            class="rounded mx-auto d-block mb-1" alt="...">
+                                                        <h3>
+                                                            Berhasil Dihapus!
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         </td>
                     </tr>
                         <?php 
@@ -103,12 +196,17 @@
                             <div class="form-group">
                                 <label></label>
                                 <select class="form-control" name="Cashier">
-                                    <option>Raisa Andriana</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <?php 
+                                        include 'API/koneksi.php';
+                                            $sqlCashier = "SELECT * FROM Cashier";
+                                            $resultCashier = $koneksi->query($sqlCashier);
+                                            
+                                            foreach($resultCashier as $resCashier){
+                                        ?>                                                            
+                                            <option value="<?php echo $resCashier["id"]; ?>"><?php echo $resCashier["name"]; ?></option>         
+                                        <?php   
+                                            }
+                                    ?>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -118,12 +216,17 @@
                             <div class="form-group">
                                 <label></label>
                                 <select class="form-control" name="Category">
-                                    <option>Ice Tea</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <?php 
+                                        include 'API/koneksi.php';
+                                            $sqlCategory = "SELECT * FROM Category";
+                                            $resultCategory = $koneksi->query($sqlCategory);
+                                            
+                                            foreach($resultCategory as $resCategory){
+                                        ?>                                                            
+                                            <option value="<?php echo $resCategory["id"]; ?>"><?php echo $resCategory["name"]; ?></option>         
+                                        <?php   
+                                            }
+                                    ?>
                                 </select>
                             </div>
 
@@ -141,88 +244,9 @@
         </div>
     </div>
 
-    <!-- Modal Edit -->
-    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog mt-5" role="document">
-            <div class="modal-content border-radius">
-                <div class="modal-header">
-                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">EDIT</h5>
-                    <button type="button" class="close text-pink" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <form>
-                            <div class="form-group">
-                                <label></label>
-                                <select class="form-control" name="Cashier">
-                                    <option>Raisa Andriana</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label></label>
-                                <input type="text" class="form-control" name="Product" placeholder="Ice Tea">
-                            </div>
-                            <div class="form-group">
-                                <label></label>
-                                <select class="form-control" name="Category">
-                                    <option>Ice Tea</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
+    
 
-                            <div class="form-group">
-                                <label></label>
-                                <input type="text" class="form-control" id="Price" placeholder="RP.10.000">
-                            </div>
-                            <div class="modal-footer no-border">
-                                <button type="button" class="btn btn-danger pl-4 pr-4">EDIT</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Delete -->
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog mt-5" role="document">
-            <div class="modal-content border-radius">
-                <div class="modal-header">
-                    <button type="button" class="close text-pink" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="text-center mb-1 font-weight-bold">
-                            <h4 class="mb-2">
-                                Data {Product.name} ID <spam class="text-pink">#{Product.id}</spam>
-                            </h4>
-                            <img src="assets/img/cropped-centang.png" style="height: 300px;"
-                                class="rounded mx-auto d-block mb-1" alt="...">
-                            <h3>
-                                Berhasil Dihapus!
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
 
     <!-- Optional JavaScript -->
