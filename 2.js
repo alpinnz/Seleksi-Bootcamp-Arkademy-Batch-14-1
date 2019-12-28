@@ -8,7 +8,10 @@ const is_age_valid = (age) => {
     let Regex = /^[0-9]{2,2}$/;
     return Regex.test(age);
 }
-
+const is_username_valid = (username) => {
+    let Regex = /^[a-z]{4,4}(?:_+|.)([0-9])\1\1$/;
+    return Regex.test(username);
+}
 // name
 console.log(is_name_valid('aa') ? "benar" : "salah");
 console.log(is_name_valid('aasd') ? "benar" : "salah");
