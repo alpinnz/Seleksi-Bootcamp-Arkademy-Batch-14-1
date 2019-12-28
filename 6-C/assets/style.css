@@ -1,0 +1,45 @@
+.text-pink {
+    color: #ffb6c1;
+}
+
+.text-green {
+    color: #7CFC00;
+}
+
+.btn-danger {
+    border-radius: 8px;
+    background-color: #ffb6c1;
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #FF69B4;
+    color: #A9A9A9;
+    border: none;
+}
+
+a:hover {
+    color: #A9A9A9;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+.border-radius {
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+.form-control {
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid black;
+}
+
+.no-border {
+    border-radius: 0;
+    border: 0;
+}
