@@ -1,14 +1,17 @@
 
 const is_name_valid = (name) => {
+    // valid number lebih 3 digit
     let Regex = /^[A-Z]{3,}$/;
     return Regex.test(name);
 }
 
 const is_age_valid = (age) => {
+    // valid number lebih 2 digit saja
     let Regex = /^[0-9]{2,2}$/;
     return Regex.test(age);
 }
 const is_username_valid = (username) => {
+    // valid number lebih 4 digit saja _ or . number tripel 3x
     let Regex = /^[a-z]{4,4}(?:_+|.)([0-9])\1\1$/;
     return Regex.test(username);
 }
