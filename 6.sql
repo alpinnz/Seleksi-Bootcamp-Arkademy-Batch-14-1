@@ -1,6 +1,9 @@
 -- Buat database
 CREATE DATABASE toko;
 
+-- mengunakan database toko
+USE toko;
+
 -- Buat Table Product berserta atributnya
 CREATE TABLE Product(
     id int PRIMARY KEY NOT NULL,
@@ -44,7 +47,7 @@ VALUES
 SELECT * FROM Cashier;
 
 -- menambahnakn data
-INSERT INTO Product (id, name, price, email, id_category, id_cashier) 
+INSERT INTO Product (id, name, price, id_category, id_cashier) 
 VALUES 
 ('1', 'Latte', '10000', '2', '1'),
 ('2', 'Cake', '20000', '1', '2'),
