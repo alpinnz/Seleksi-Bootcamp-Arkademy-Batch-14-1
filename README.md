@@ -24,7 +24,7 @@ Soal 6-A -> 6-A.SQL, 6-A-1. JPG, 6-A-2.JPG
 
 
 Soal 6-B -> folder 6-B -> index.html
-
+-> https://github.com/alpinnz/Seleksi-Bootcamp-Arkademy-Batch-14-1/tree/master/6-B
 ![index](https://user-images.githubusercontent.com/51067047/71543921-588cf280-29ab-11ea-8fa1-0d58995c65e2.JPG)
 ![add](https://user-images.githubusercontent.com/51067047/71543922-588cf280-29ab-11ea-8c3d-5a63310c1fb2.JPG)
 ![delete](https://user-images.githubusercontent.com/51067047/71543923-588cf280-29ab-11ea-923d-beced74c9a75.JPG)
@@ -36,6 +36,6 @@ jalankan APACHE dan MYSQL
 buka mysql -> create database toko -> restore -> toko-restore.sql
 pindahkan folder 6-C ke folder -> C:\xampp\htdocs\
 buka browser localhost
-
+-> https://github.com/alpinnz/Seleksi-Bootcamp-Arkademy-Batch-14-1/tree/master/6-C
 ![index](https://user-images.githubusercontent.com/51067047/71544002-36e03b00-29ac-11ea-8945-ba1ea7ad7635.JPG)
 
