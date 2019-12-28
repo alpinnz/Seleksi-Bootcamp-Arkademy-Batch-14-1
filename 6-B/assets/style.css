@@ -3,7 +3,7 @@
 }
 
 .text-green {
-    color: #00FF00;
+    color: #7CFC00;
 }
 
 .btn-danger {
@@ -15,10 +15,10 @@
 
 .btn-danger:hover {
     background-color: #FF69B4;
-    color: #000000;
+    color: #A9A9A9;
     border: none;
 }
 
 a:hover {
-    color: #000000;
+    color: #A9A9A9;
 }
