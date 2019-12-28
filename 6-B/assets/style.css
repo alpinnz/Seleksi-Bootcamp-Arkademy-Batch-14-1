@@ -32,3 +32,14 @@ a:hover {
     border-radius: 1em;
     overflow: hidden;
 }
+
+.form-control {
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid black;
+}
+
+.no-border {
+    border-radius: 0;
+    border: 0;
+}
