@@ -22,3 +22,13 @@
 a:hover {
     color: #A9A9A9;
 }
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+.border-radius {
+    border-radius: 1em;
+    overflow: hidden;
+}
