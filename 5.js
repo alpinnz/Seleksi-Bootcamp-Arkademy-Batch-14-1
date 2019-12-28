@@ -1,12 +1,9 @@
 const createMatrix = (ordo) => {
     let arr = new Array(ordo);
-
     let left = [];
     let right = [];
-
     let rowRight = 0;
     let colRight = (arr.length - 1);
-
     let no = 1;
     // create item to array
     for (let row = 0; row < arr.length; row++) {
@@ -37,7 +34,6 @@ const createMatrix = (ordo) => {
     let sumRight = right.reduce((total, value) => total + value, 0);
     // perkalian dari hasil sum diagonal
     let result = sumLeft * sumRight
-
     // formula bersifat dinamy di ambil dari arr diagonal kiri kanan yang di pisahkan dengan + mengunakan fungsi join()
     console.log('Formula: (' + left.join(' + ') + ') x (' + right.join(' + ') + ')');
     console.log('Total: ' + result);
