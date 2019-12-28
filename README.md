@@ -31,3 +31,5 @@ buka mysql -> create database toko -> restore -> 6-C.sql
 pindahkan folder 6-C ke folder -> C:\xampp\htdocs\
 buka browser localhost
 
+![index](https://user-images.githubusercontent.com/51067047/71544002-36e03b00-29ac-11ea-8945-ba1ea7ad7635.JPG)
+
