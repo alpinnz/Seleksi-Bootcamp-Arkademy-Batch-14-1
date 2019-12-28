@@ -56,6 +56,7 @@ VALUES
 SELECT * FROM Product;
 
 -- Buatlah query untuk menghasilkan tampilan seperti ini :
+SELECT
 Cashier.name AS cashier, 
 Product.name AS product, 
 Category.name AS category, 
