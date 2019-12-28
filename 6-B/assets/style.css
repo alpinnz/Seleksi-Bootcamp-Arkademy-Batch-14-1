@@ -1,0 +1,24 @@
+.text-pink {
+    color: #ffb6c1;
+}
+
+.text-green {
+    color: #00FF00;
+}
+
+.btn-danger {
+    border-radius: 8px;
+    background-color: #ffb6c1;
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #FF69B4;
+    color: #000000;
+    border: none;
+}
+
+a:hover {
+    color: #000000;
+}
